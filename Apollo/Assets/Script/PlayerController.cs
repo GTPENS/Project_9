@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public float fuel;
+    public float movespeed = 15f;
     private bool isFuelUse;
     public Rigidbody2D rb;
+    public GravityAtractor atrator;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -14,6 +16,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        atrator.Attract(transform);
+        
         if (Input.GetMouseButtonDown(0) && fuel > 0)
         {
             rb.velocity = new Vector2(3, rb.velocity.y);
