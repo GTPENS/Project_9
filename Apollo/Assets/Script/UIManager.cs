@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public Slider fuelSlide;
     public PlayerController player;
+    public GameObject gameOver;
     // Use this for initialization
 	void Start () {
         player = FindObjectOfType<PlayerController>();
@@ -18,4 +19,8 @@ public class UIManager : MonoBehaviour {
 	void Update () {
         fuelSlide.value = player.fuel;
 	}
+    public void EndGameLevel()
+    {
+        gameOver.SetActive(!gameOver.activeSelf);
+    }
 }
